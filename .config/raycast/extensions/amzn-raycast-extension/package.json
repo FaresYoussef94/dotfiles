@@ -1,0 +1,560 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "private": true,
+  "name": "amzn-raycast-extension",
+  "title": "Amzn Raycast Extension",
+  "version": "1.17.9",
+  "description": "Offer a unified interface for convenient access to various internal Amazon services, optimizing workflow efficiency.",
+  "icon": "extension-icon.png",
+  "author": "zhenpewu",
+  "contributors": [
+    "stelo"
+  ],
+  "categories": [
+    "Productivity"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git.amazon.com/pkg/AmznRaycastExtension"
+  },
+  "homepage": "https://code.amazon.com/packages/AmznRaycastExtension",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "commands": [
+    {
+      "name": "aws-region",
+      "title": "AWS Region",
+      "icon": "command-icons/aws-region.png",
+      "description": "Search for AWS regions by airport code or region name, delivering comprehensive details such as partition, status, availability zones, and more for each region.",
+      "mode": "view"
+    },
+    {
+      "name": "isengard",
+      "title": "Isengard",
+      "description": "Search for Isengard accounts by ID or Email, allowing seamless federation into the desired account and role, and enabling other valuable actions for enhanced management and control.",
+      "icon": "command-icons/isengard.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "title": "Partition",
+          "name": "aws-cn",
+          "type": "checkbox",
+          "label": "aws-cn",
+          "required": false,
+          "default": false,
+          "description": "Enable the aws-cn partition, which requires a VPN connection or `mwinit --aea --cn`."
+        },
+        {
+          "title": "Browser",
+          "name": "isengard-browser",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "Default",
+              "value": "default"
+            },
+            {
+              "title": "Firefox",
+              "value": "firefox"
+            }
+          ],
+          "default": "default",
+          "description": "Browser to be used for opening Isengard links."
+        }
+      ]
+    },
+    {
+      "name": "conduit",
+      "title": "Conduit",
+      "description": "Search for Conduit accounts by ID or Name, allowing seamless federation into the desired account and role.",
+      "icon": "command-icons/conduit.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "title": "Browser",
+          "name": "conduit-browser",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "Default",
+              "value": "default"
+            },
+            {
+              "title": "Firefox",
+              "value": "firefox"
+            }
+          ],
+          "default": "default",
+          "description": "Browser to be used for opening Conduit links."
+        },
+        {
+          "title": "Session Duration",
+          "name": "conduit-session-duration",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "1 Hr",
+              "value": "3600"
+            },
+            {
+              "title": "3 Hrs",
+              "value": "10800"
+            },
+            {
+              "title": "6 Hrs",
+              "value": "21600"
+            },
+            {
+              "title": "12 Hrs",
+              "value": "43200"
+            }
+          ],
+          "default": "3600",
+          "description": "Session duration used when accessing conduit accounts."
+        }
+      ]
+    },
+    {
+      "name": "code-package",
+      "title": "Code Package",
+      "description": "Search for code packages by name, and during launch, favorite, bindle-managed, and recently visited packages are loaded for convenience.",
+      "icon": "command-icons/code-package.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "title": "Cache Expiry Duration",
+          "name": "cache-expiry-duration",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "24 Hours",
+              "value": "1"
+            },
+            {
+              "title": "3 Days",
+              "value": "3"
+            },
+            {
+              "title": "7 Days",
+              "value": "7"
+            },
+            {
+              "title": "30 Days",
+              "value": "30"
+            },
+            {
+              "title": "3 Months",
+              "value": "90"
+            }
+          ],
+          "default": "7",
+          "description": "Duration for which an item can remain in the cache without being visited."
+        }
+      ]
+    },
+    {
+      "name": "version-set",
+      "title": "Version Set",
+      "description": "Search for version sets and version set groups. Standard mode supports name prefix only, while Preload mode enables approximate name matching for user-related version set groups and recently visited version sets and groups.",
+      "icon": "command-icons/versionset.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "title": "Cache Expiry Duration",
+          "name": "cache-expiry-duration",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "24 Hours",
+              "value": "1"
+            },
+            {
+              "title": "3 Days",
+              "value": "3"
+            },
+            {
+              "title": "7 Days",
+              "value": "7"
+            },
+            {
+              "title": "30 Days",
+              "value": "30"
+            },
+            {
+              "title": "3 Months",
+              "value": "90"
+            }
+          ],
+          "default": "7",
+          "description": "Duration for which an item can remain in the cache without being visited."
+        }
+      ]
+    },
+    {
+      "name": "pipeline",
+      "title": "Pipeline",
+      "description": "Search for pipelines. Standard mode supports name prefix only, while Preload mode enables approximate name matching for favorite and related pipelines and recently visited pipelines.",
+      "icon": "command-icons/pipeline.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "title": "Cache Expiry Duration",
+          "name": "cache-expiry-duration",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "24 Hours",
+              "value": "1"
+            },
+            {
+              "title": "3 Days",
+              "value": "3"
+            },
+            {
+              "title": "7 Days",
+              "value": "7"
+            },
+            {
+              "title": "30 Days",
+              "value": "30"
+            },
+            {
+              "title": "3 Months",
+              "value": "90"
+            }
+          ],
+          "default": "7",
+          "description": "Duration for which an item can remain in the cache without being visited."
+        }
+      ]
+    },
+    {
+      "name": "taskei",
+      "title": "Taskei",
+      "description": "Perform query on Taskei for Rooms, Sprints, and Tasks along with relevant information.",
+      "icon": "command-icons/taskei.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "view-on-sim",
+          "label": "View on SIM",
+          "type": "checkbox",
+          "default": false,
+          "required": false,
+          "description": "Enable viewing sprints and tasks on SIM instead of Taskei."
+        }
+      ]
+    },
+    {
+      "name": "code-review",
+      "title": "Code Review",
+      "description": "Retrieve code reviews that are sent by the user and received by the user, as well as sent to favorite permission groups, and provide details such as CR ID, author, description, and the number of approvals, along with any additional relevant information.",
+      "icon": "command-icons/code-review.png",
+      "mode": "view"
+    },
+    {
+      "name": "sim-ticketing",
+      "title": "Ticketing",
+      "description": "Perform query on SIM Ticketing (SIM-T) for tickets along with relevant information.",
+      "icon": "command-icons/ticketing.png",
+      "mode": "view"
+    },
+    {
+      "name": "phone-tool",
+      "title": "Phone Tool",
+      "description": "Search for Amazon employees using Phone Tool, offering comprehensive profiles for each individual.",
+      "icon": "command-icons/phone-tool.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "title": "Cache Expiry Duration",
+          "name": "cache-expiry-duration",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "24 Hours",
+              "value": "1"
+            },
+            {
+              "title": "3 Days",
+              "value": "3"
+            },
+            {
+              "title": "7 Days",
+              "value": "7"
+            },
+            {
+              "title": "30 Days",
+              "value": "30"
+            },
+            {
+              "title": "3 Months",
+              "value": "90"
+            }
+          ],
+          "default": "7",
+          "description": "Duration for which an item can remain in the cache without being visited."
+        },
+        {
+          "title": "Slack Workspace URL",
+          "type": "textfield",
+          "name": "slack-workspace-url",
+          "placeholder": "https://amzn-aws.slack.com",
+          "description": "Slack workspace URL for direct messaging the Amazon employee; locate it by opening Slack in a web browser.",
+          "required": false
+        },
+        {
+          "title": "Slack Workspace ID",
+          "type": "textfield",
+          "name": "slack-workspace-id",
+          "placeholder": "T016M3G1GHZ",
+          "description": "Slack workspace ID for direct messaging the Amazon employee; locate it by opening Slack in a web browser and the workspace ID starts with the letter T.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "on-call",
+      "title": "On-Call",
+      "description": "Search for the current On-Call for Amazon internal teams, providing details like aliases, description, and relevant information.",
+      "icon": "command-icons/on-call.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "preload-teams",
+          "type": "textfield",
+          "title": "Preload Teams",
+          "required": false,
+          "description": "List of On-Call teams that will be preloaded upon execution.",
+          "placeholder": "T1, T2, T3"
+        },
+        {
+          "title": "Cache Expiry Duration",
+          "name": "cache-expiry-duration",
+          "type": "dropdown",
+          "required": false,
+          "data": [
+            {
+              "title": "24 Hours",
+              "value": "1"
+            },
+            {
+              "title": "3 Days",
+              "value": "3"
+            },
+            {
+              "title": "7 Days",
+              "value": "7"
+            },
+            {
+              "title": "30 Days",
+              "value": "30"
+            },
+            {
+              "title": "3 Months",
+              "value": "90"
+            }
+          ],
+          "default": "7",
+          "description": "Duration for which an item can remain in the cache without being visited."
+        }
+      ]
+    },
+    {
+      "name": "internal-search",
+      "title": "Internal Search",
+      "description": "Perform query on Internal Search, yielding comprehensive and relevant results.",
+      "icon": "command-icons/internal-search.png",
+      "mode": "view"
+    },
+    {
+      "name": "quip",
+      "title": "Quip",
+      "description": "Search for Quip documents and open them in either the Quip application or browser.",
+      "icon": "command-icons/quip.png",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "quip-api-token",
+          "type": "password",
+          "title": "Quip API Token",
+          "required": true,
+          "description": "Quip personal API access token, which could be obtained by visiting https://quip-amazon.com/dev/token."
+        }
+      ]
+    },
+    {
+      "name": "mwinit",
+      "title": "Midway Authorization",
+      "icon": "command-icons/mwinit.png",
+      "description": "Authorize through Amazon Midway, regularly validate expiration every minute, automatically refresh while promptly updating the status in the subtitle.",
+      "mode": "no-view",
+      "interval": "1m",
+      "preferences": [
+        {
+          "title": "mwinit Options",
+          "name": "-s",
+          "type": "checkbox",
+          "label": "-s",
+          "required": false,
+          "default": true,
+          "description": "Add sentry cookie for sentry website 'sentry.amazon.com'."
+        },
+        {
+          "name": "--breakglass",
+          "type": "checkbox",
+          "label": "--breakglass",
+          "required": false,
+          "default": false,
+          "description": "Create ssh certificate to access prod host."
+        },
+        {
+          "title": "Cloud Desktop Host",
+          "name": "cloud-desktop-host",
+          "type": "textfield",
+          "required": false,
+          "description": "Host name of cloud desktop, where the local midway cookie and SSH certificate are synced."
+        },
+        {
+          "title": "Force Sync Apple Calendar",
+          "name": "kill-exchangesyncd",
+          "type": "checkbox",
+          "required": false,
+          "default": false,
+          "description": "Force sync Apple Calendar by killing exchangesyncd, automatically executed during user-initiated command.",
+          "label": "Kill exchangesyncd"
+        }
+      ]
+    },
+    {
+      "name": "tiny-url",
+      "title": "Amazon TinyURL",
+      "icon": "command-icons/tiny-url.png",
+      "description": "Generate a shortened link with Amazon TinyURL.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "url",
+          "placeholder": "URL",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "amz-id",
+      "title": "Amazon Customer ID",
+      "description": "Encrypt / Decrypt Amazon Customer ID",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "id",
+          "placeholder": "ID",
+          "type": "text",
+          "required": true,
+          "description": "Customer / merchant ID which needs to be converted."
+        }
+      ]
+    },
+    {
+      "name": "update-extension",
+      "title": "Update Extension",
+      "description": "Check and install updates for Amzn Raycast Extension.",
+      "icon": "command-icons/update-extension.png",
+      "mode": "no-view",
+      "interval": "1h",
+      "preferences": [
+        {
+          "title": "Installation Option",
+          "name": "installation-option",
+          "type": "dropdown",
+          "required": true,
+          "data": [
+            {
+              "title": "Import Complied Source Code Zip File",
+              "value": "option-1"
+            },
+            {
+              "title": "Build Source Code",
+              "value": "option-2"
+            }
+          ],
+          "description": "Installation option to determine its respective update strategy."
+        }
+      ]
+    },
+    {
+      "name": "extension-changelog",
+      "title": "Extension Changelog",
+      "description": "List the recent changelogs for Amzn Raycast Extension.",
+      "icon": "command-icons/extension-changelog.png",
+      "mode": "view"
+    }
+  ],
+  "scripts": {
+    "build": "ray build -e dist",
+    "build:dist": "ray build -e dist -o dist",
+    "clean": "rm -rf build node_modules",
+    "ws:config": "echo \"{\\\"workspacePath\\\": \\\"$(pwd)\\\"}\" > ./assets/workspace-config.json",
+    "dev": "npm run ws:config && ray develop --emoji",
+    "lint:fix": "ray lint --fix",
+    "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
+    "lint": "ray lint",
+    "lint-staged": "lint-staged",
+    "make-release": "semantic-release --no-ci"
+  },
+  "files": [],
+  "dependencies": {
+    "@amzn/amazon-id": "^4.0.2",
+    "@amzn/raycast-extension-commons": "^1.0.53",
+    "@raycast/api": "^1.65.1",
+    "date-fns": "^2.30.0",
+    "dequal": "^2.0.3",
+    "fuzzysort": "^2.0.4",
+    "lodash": "^4.17.21",
+    "node-html-parser": "^6.1.12",
+    "object-hash": "^3.0.0",
+    "semver": "^7.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.8.1",
+    "@commitlint/config-conventional": "^17.8.1",
+    "@raycast/eslint-config": "^1.0.8",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.11.5",
+    "@types/object-hash": "^3.0.6",
+    "@types/react": "^18.2.48",
+    "@types/semver": "^7.5.6",
+    "@types/xml2js": "^0.4.14",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4",
+    "semantic-release": "^21.1.2",
+    "typescript": "^5.3.3"
+  }
+}
