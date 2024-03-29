@@ -1,2 +1,2 @@
-require("faresjoe")
-print("Let's introduce some bugs!")
+require("faresjoe.core")
+require("faresjoe.lazy")
