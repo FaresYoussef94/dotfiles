@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+		"mfussenegger/nvim-jdtls",
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -133,5 +134,14 @@ return {
 				},
 			},
 		})
+
+		-- configure java server
+
+		local nvim_jdtls_config = {
+			cmd = { "/Users/faresjoe/.local/share/nvim/mason/bin/jdtls" },
+			root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
+		}
+		require("jdtls").start_or_attach(nvim_jdtls_config)
+		print("jdtls successful")
 	end,
 }
