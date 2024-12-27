@@ -1,0 +1,28 @@
+[cli "bin"]
+ruby27 = /Users/faresjoe/.runtimes/Ruby27x/bin/ruby
+
+node18x = /Users/faresjoe/.nvm/versions/node/v18.16.0/bin/node
+node16x = /Users/faresjoe/.nvm/versions/node/v16.18.1/bin/node
+
+python39 = /opt/homebrew/Cellar/python@3.9/3.9.17/Frameworks/Python.framework/Versions/3.9/bin/python3.9
+
+python38 = /opt/homebrew/bin/python3.8
+
+java17_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java9_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+
+java8_home = /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+
+java21_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java20_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java19_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java18_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java16_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java15_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java14_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java13_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java12_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java11_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java10_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java7_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+java6_home = /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home

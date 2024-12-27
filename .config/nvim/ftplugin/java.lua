@@ -16,6 +16,8 @@ local config = {
 		"/Library/Java/jdt-language-server-1.9.0-202203031534/config_mac/",
 		"-data",
 		vim.fn.expand("~/.cache/jdtls/") .. workspace_dir,
+		"-jvm-arg=-javaagent:",
+		"/Library/Java/Lombok/lombok.jar",
 	},
 	root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 	capabilities = capabilities,

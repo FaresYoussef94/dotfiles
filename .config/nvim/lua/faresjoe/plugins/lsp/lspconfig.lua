@@ -97,10 +97,10 @@ return {
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- lspconfig["typescript-language-server"].setup({
+			-- capabilities = capabilities,
+			-- on_attach = on_attach,
+		-- })
 
 		-- configure python server
 		lspconfig["pyright"].setup({
@@ -136,12 +136,10 @@ return {
 		})
 
 		-- configure java server
-
-		local nvim_jdtls_config = {
-			cmd = { "/Users/faresjoe/.local/share/nvim/mason/bin/jdtls" },
-			root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
-		}
-		require("jdtls").start_or_attach(nvim_jdtls_config)
-		print("jdtls successful")
+		-- local nvim_jdtls_config = {
+			-- cmd = { "/Users/faresjoe/.local/share/nvim/mason/bin/jdtls" },
+			-- root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
+		-- }
+		-- require("jdtls").start_or_attach(nvim_jdtls_config)
 	end,
 }
